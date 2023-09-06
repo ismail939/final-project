@@ -5,7 +5,7 @@
 <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Login</title>
+<title>Register</title>
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 
@@ -21,7 +21,7 @@
         <input type="text" name="address" id="address" placeholder="enter your address"><br>
         <label>Profile picture</label><br>
         <input type="file" name="img" id="img"><br>
-        <input type="submit" value="submit">
+        <input type="submit" value="submit" class="submit">
 
     </form>
 
