@@ -17,6 +17,8 @@
         <input type="email" name="email" id="email" placeholder="enter your email"><br>
         <label>Password</label><br>
         <input type="password" name="password" id="password" placeholder="enter your password"><br>
+        <label>Phone</label><br>
+        <input type="text" name="phone" id="phone" placeholder="enter your phone number"><br>
         <label>Address</label><br>
         <input type="text" name="address" id="address" placeholder="enter your address"><br>
         <label>Profile picture</label><br>
