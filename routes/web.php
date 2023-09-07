@@ -24,10 +24,8 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/userHome', function(){
-    return view('userHome');
-})->name('userHome');
+Route::get('/userHome/{id}', [User::class, 'show'])->name('userHome');
 
-Route::get('/userProfile', function(){
+Route::get('/userProfile', function () {
     return view('profile');
 })->name('profile');
