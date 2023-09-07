@@ -11,7 +11,7 @@
 
 <body>
     <h2>{{ $user->name }}</h2>
-    <form action="{{ route('profile') }}" method="GET">
+    <form action="{{ route('profile', $user->id) }}" method="GET">
         <button>Profile</button>
     </form>
     {{-- <a href="{{route('profile')}}">Profile</a> --}}

@@ -27,6 +27,4 @@ Route::get('/register', function () {
 
 Route::get('/userHome/{id}', [UserController::class, 'show'])->name('userHome.show');
 Route::post('/register/store', [UserController::class, 'store'])->name('register.store');
-Route::get('/userProfile', function () {
-    return view('profile');
-})->name('profile');
+Route::get('/userProfile/{id}',[UserController::class, 'showP'] )->name('profile');

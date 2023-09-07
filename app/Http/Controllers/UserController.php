@@ -16,6 +16,10 @@ class UserController extends Controller
         $user=User::find($id);
         return view('userHome', compact('user'));
     }
+    public function showP($id){
+        $user=User::find($id);
+        return view('profile', compact('user'));
+    }
 
     public function store(Request $request){
         $request->validate([

@@ -13,12 +13,12 @@
             User details
         </legend>
         <table>
-            <tr><td><img src="images/{{$user->image}}" alt="profile pic"></td></tr>
+            <tr><td><img src="/images/{{$user->image}}" alt="profile pic" height="100px" width="100px"></td></tr>
             <tr>
-                <td>$user->name</td>
-                <td>$user->address</td>
-                <td>$user->phone</td>
-                <td>$user->email</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->address}}</td>
+                <td>{{$user->phone}}</td>
+                <td>{{$user->email}}</td>
             </tr>
         </table>
     </fieldset>
