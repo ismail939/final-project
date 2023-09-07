@@ -26,11 +26,11 @@ class UserController extends Controller
 
         $request->image->move(public_path('images'), $imageName);
 
-        $user = User::create($request->all());
+        $user = User::create($request->except(['_token', '_method']));
         $user->update([
             'image' => $imageName,
         ]);
-        return redirect()->route('userHome');
+        return redirect()->route('userHome.show', $user->id);
 
     }
 }

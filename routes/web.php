@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +25,8 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/userHome/{id}', [User::class, 'show'])->name('userHome');
-
+Route::get('/userHome/{id}', [UserController::class, 'show'])->name('userHome.show');
+Route::post('/register/store', [UserController::class, 'store'])->name('register.store');
 Route::get('/userProfile', function () {
     return view('profile');
 })->name('profile');

@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <form action="{{ route('userHome') }}" method="GET" id="loginForm" enctype="multipart/form-data">
+    <form action="{{ route('register.store') }}" method="POST" id="loginForm" enctype="multipart/form-data">
+        @csrf
         <label>Name</label><br>
         <input type="text" name="name" id="name" placeholder="enter your full name"><br>
         <label>Email</label><br>
@@ -22,7 +23,7 @@
         <label>Address</label><br>
         <input type="text" name="address" id="address" placeholder="enter your address"><br>
         <label>Profile picture</label><br>
-        <input type="file" name="img" id="img"><br>
+        <input type="file" name="image" id="image"><br>
         <input type="submit" value="submit" class="submit">
 
     </form>
