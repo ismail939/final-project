@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="{{ route('register') }}" method="GET"><button>Products</button></form>
-    <form action="{{ route('register') }}" method="GET"><button>Users</button></form>
+    <form action="{{ route('admin.users') }}" method="GET"><button>Users</button></form>
     <form action="{{ route('register') }}" method="GET"><button>Orders</button></form>
     <form action="{{ route('register') }}" method="GET"><button>Categories</button></form>
 </body>

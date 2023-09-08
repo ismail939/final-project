@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -42,3 +43,5 @@ Route::get('/userProfile/{id}', [UserController::class, 'showP'])->name('profile
 Route::get('/admin', function () {
     return view('admin.login');
 });
+
+Route::get('/admin/home/users', [AdminController::class, 'indexUsers'])->name('admin.users');
