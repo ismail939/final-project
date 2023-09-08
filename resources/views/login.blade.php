@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <form action="{{route('userHome')}}" method="GET" id="loginForm">
+    <form action="{{route('loginL')}}" method="POST" id="loginForm">
+        @csrf
         <label>Email</label><br>
         <input type="email" name="email" id="email" placeholder="enter your email"><br>
         <label>Password</label><br>

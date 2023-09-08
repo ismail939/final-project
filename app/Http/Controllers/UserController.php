@@ -16,6 +16,13 @@ class UserController extends Controller
         $user=User::find($id);
         return view('userHome', compact('user'));
     }
+    public function showL(Request $request){
+        $user=User::where('email','=',$request->email)->where('password','=',$request->password)->get();
+        if($user){
+            return redirect()->route('userHome.show', $user->get(0));
+        }
+
+    }
     public function showP($id){
         $user=User::find($id);
         return view('profile', compact('user'));

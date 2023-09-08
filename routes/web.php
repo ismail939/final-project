@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// route to login page
-Route::get('/login', function () {
+// // route to login page
+Route::get('/login', function(){
     return view('login');
 })->name('login');
-
+Route::post('/login', [UserController::class, 'showL'])->name('loginL');
 Route::get('/register', function () {
     return view('register');
 })->name('register');
@@ -28,3 +28,4 @@ Route::get('/register', function () {
 Route::get('/userHome/{id}', [UserController::class, 'show'])->name('userHome.show');
 Route::post('/register/store', [UserController::class, 'store'])->name('register.store');
 Route::get('/userProfile/{id}',[UserController::class, 'showP'] )->name('profile');
+
