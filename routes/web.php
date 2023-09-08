@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 
 // // route to login page
 Route::get('/login', function(){
-    return view('login');
+    return view('user.login');
 })->name('login');
 Route::post('/login', [UserController::class, 'showL'])->name('loginL');
 Route::get('/register', function () {
-    return view('register');
+    return view('user.register');
 })->name('register');
 
 Route::get('/userHome/{id}', [UserController::class, 'show'])->name('userHome.show');

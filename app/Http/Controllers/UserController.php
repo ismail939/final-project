@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function show($id){
         $user=User::find($id);
-        return view('userHome', compact('user'));
+        return view('user.userHome', compact('user'));
     }
     public function showL(Request $request){
         $user=User::where('email','=',$request->email)->where('password','=',$request->password)->get();
@@ -25,7 +25,7 @@ class UserController extends Controller
     }
     public function showP($id){
         $user=User::find($id);
-        return view('profile', compact('user'));
+        return view('user.profile', compact('user'));
     }
 
     public function store(Request $request){
