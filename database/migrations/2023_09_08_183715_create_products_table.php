@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->float('price')->default(0);
             $table->string('availability');
+            $table->string('image');
             $table->foreignId('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

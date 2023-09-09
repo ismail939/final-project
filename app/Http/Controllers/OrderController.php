@@ -12,7 +12,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::get();
+        return view('admin.orders', compact('orders'));
     }
 
     /**

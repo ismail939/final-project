@@ -8,7 +8,7 @@
 </head>
 <body>
     <a id="button" href="{{ route('product.create') }}">Add Product</a>
-    
+
     <table>
         <thead>
             <tr>
@@ -16,6 +16,7 @@
                 <th>Product price</th>
                 <th>Product availablity</th>
                 <th>Category name</th>
+                <th>Product picture</th>
                 <th>Actions</th>
 
 
@@ -29,18 +30,19 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->availability }}</td>
                     <td>{{$product->category->name}}</td>
+                    <td>{{$product->image}}</td>
                     <td>
                         {{-- <a href="{{route('product.show',$product->product_id)}}">show</a> --}}
-                        <form action="{{ route('product.show', $product->id) }}" method="get">
+                        {{-- <form action="{{ route('product.show', $product->id) }}" method="get">
                             <button>Show</button>
-                        </form>
+                        </form> --}}
                         <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit">Delete</button>
                         </form>
 
-                        <form action="{{ route('product.update', $product->id) }}">
+                        <form action="{{ route('product.updat', $product->id) }}">
                             <button type="submit">Update</button>
                         </form>
                     </td>
