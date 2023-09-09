@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/', function(){
+    return view('welcome');
+});
 Route::post('/admin/home', function (Request $request) {
     if($request->name=="ismail"&&$request->password=="gg.gg.gg"){
         return view('admin.home');
