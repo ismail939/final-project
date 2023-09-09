@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/nav.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
 
 <body>
     <div class="nav-container">
@@ -20,14 +21,29 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#" class="nav-links">Home</a></li>
-                <li><a href="#" class="nav-links">Services</a></li>
+                <li><a href="" class="nav-links" id="homeLink">Home</a></li>
+                <li><a href="" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Login</a></li>
-                <li><a href="#" class="nav-links nav-links-btn">Register</a></li>
+                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Login</a></li>
+                <li><a href="{{ route('register') }}" class="nav-links nav-links-btn">Register</a></li>
             </ul>
         </nav>
     </div>
+
+
+    <script>
+        let homeLink = document.getElementById("homeLink");
+        let profileLink = document.getElementById("profileLink");
+
+        homeLink.addEventListener('click', function() {
+            alert("You should log in first");
+        });
+
+        profileLink.addEventListener('click', function() {
+            alert("You should log in first");
+        });
+    </script>
 </body>
+
 </html>
