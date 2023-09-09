@@ -10,6 +10,6 @@
     <form action="{{ route('product.index') }}" method="GET"><button>Products</button></form>
     <form action="{{ route('admin.users') }}" method="GET"><button>Users</button></form>
     <form action="{{ route('order.index') }}" method="GET"><button>Orders</button></form>
-    <form action="{{ route('register') }}" method="GET"><button>Categories</button></form>
+    <form action="{{ route('category.index') }}" method="GET"><button>Categories</button></form>
 </body>
 </html>

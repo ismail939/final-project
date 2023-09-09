@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
@@ -46,8 +47,10 @@ Route::get('/admin', function () {
     return view('admin.login');
 });
 
+Route::get('/admin/categories', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/admin/home/users', [AdminController::class, 'indexUsers'])->name('admin.users');
 Route::resource('/product', ProductController::class);
 Route::get('/product/update/{id}', [ProductController::class, 'updatee'])->name('product.updat');
 Route::put('/product/{id}/edit', [ProductController::class, 'edit']);
 Route::get('/admin/orders', [OrderController::class, 'index'])->name('order.index');
+
