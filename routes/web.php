@@ -36,6 +36,9 @@ Route::post('/admin/home', function (Request $request) {
 Route::get('/login', function () {
     return view('user.login');
 })->name('login');
+
+Route::get('/userHome/logout', [UserController::class, 'logout'])->name('logout');
+
 Route::post('/login', [UserController::class, 'showL'])->name('loginL');
 Route::get('/register', function () {
     return view('user.register');

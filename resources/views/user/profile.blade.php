@@ -20,12 +20,11 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="" class="nav-links" id="homeLink">Home</a></li>
-                <li><a href="" class="nav-links" id="profileLink">Profile</a></li>
+                <li><a href="{{route('userHome.show', $user->id)}}" class="nav-links" id="homeLink">Home</a></li>
+                <li><a href="{{route('profile', $user->id)}}" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Login</a></li>
-                <li><a href="{{ route('register') }}" class="nav-links nav-links-btn">Register</a></li>
+                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Logout</a></li>
             </ul>
         </nav>
     </div>

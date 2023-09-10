@@ -26,7 +26,7 @@
                 <li><a href="" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Login</a></li>
+               
                 <li><a href="{{ route('register') }}" class="nav-links nav-links-btn">Register</a></li>
             </ul>
         </nav>

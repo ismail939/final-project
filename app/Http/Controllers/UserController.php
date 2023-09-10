@@ -18,10 +18,9 @@ class UserController extends Controller
     }
     public function showL(Request $request){
         $user=User::where('email','=',$request->email)->where('password','=',$request->password)->get();
+        $id=$user->get(0);
         if($user){
-            session_start();
-            $_SESSION['user_id']=$user->id;
-            return redirect()->route('userHome.show', $user->get(0));
+            return redirect()->route('userHome.show', $id);
         }
 
     }
@@ -33,17 +32,29 @@ class UserController extends Controller
     public function store(Request $request){
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name'=> 'required',
+            'email'=>'required|email',
+            'password'=>'required',
         ]);
+        try{
+        $user = User::create($request->except(['_token', '_method']));
         $imageName = time() . '.' . $request->image->extension();
 
 
         $request->image->move(public_path('images'), $imageName);
 
-        $user = User::create($request->except(['_token', '_method']));
+
         $user->update([
             'image' => $imageName,
         ]);
         return redirect()->route('userHome.show', $user->id);
+    }catch(\Throwable $th){
+        return view('user.register');
+    }
 
+    }
+    public function logout(){
+
+        return view('user.login');
     }
 }
