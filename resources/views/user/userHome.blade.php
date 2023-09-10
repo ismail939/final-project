@@ -28,6 +28,7 @@
                 <li><a href="#" class="nav-links">Contact Us</a></li>
 
                 <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Logout</a></li>
+                <li><img class="nav-links" src="/images/{{$user->image}}" alt="profile pic" height="50px" width="50px"></li>
 
             </ul>
         </nav>
@@ -39,6 +40,7 @@
     </form>
     {{-- <a href="{{route('profile')}}">Profile</a> --}}
     <button id="searchbtn">Search</button>
+
 </body>
 
 </html>

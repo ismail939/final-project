@@ -32,6 +32,8 @@
 .nav-links{
     color: var(--white);
     text-decoration: none;
+    display: block;
+    margin: 9px 10px 9px 10px;
 }
 
 #navbar-logo{
@@ -42,13 +44,13 @@
 }
 
 .nav-menu{
-    display: grid;
+    display:grid;
     grid-template-columns: repeat(6, auto);
     list-style: none;
     text-align: center;
     width: 70%;
     justify-self: end;
-    margin: auto;
+
 }
 
 .nav-links:hover{
