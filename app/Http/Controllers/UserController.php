@@ -19,6 +19,8 @@ class UserController extends Controller
     public function showL(Request $request){
         $user=User::where('email','=',$request->email)->where('password','=',$request->password)->get();
         if($user){
+            session_start();
+            $_SESSION['user_id']=$user->id;
             return redirect()->route('userHome.show', $user->get(0));
         }
 
