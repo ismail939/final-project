@@ -59,3 +59,6 @@ Route::get('/product/update/{id}', [ProductController::class, 'updatee'])->name(
 Route::put('/product/{id}/edit', [ProductController::class, 'edit']);
 Route::get('/admin/orders', [OrderController::class, 'index'])->name('order.index');
 
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');

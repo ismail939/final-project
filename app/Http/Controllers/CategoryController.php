@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.createCategory');
     }
 
     /**
@@ -29,7 +29,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->except(['_token', '_method']));
+        return redirect()->route('category.index');
     }
 
     /**
@@ -59,8 +60,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }
