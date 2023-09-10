@@ -13,7 +13,7 @@
     <form action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <label>Name</label><br>
-        <input type="text" name="name" placeholder="category_name"><br>
+        <input type="text" name="name" placeholder="category_name" required><br>
         <input class="button" type="submit">
 
 

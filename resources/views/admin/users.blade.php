@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Users</title>
+    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 </head>
 <body>
-    <table style="border-width: 1px; border-style: solid; border-color: black" >
+    <table>
         <thead>
             <tr>
                 <th>Name</th>

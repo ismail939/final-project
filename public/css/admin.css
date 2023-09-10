@@ -1,0 +1,64 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ccc;
+    margin: auto;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 1px;
+  }
+  button:hover{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 1px;
+  }
+
+  #button {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    text-decoration: none;
+  }
+  #button:hover{
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: auto;
+    text-decoration: none;
+  }
+
+  form {
+    vertical-align:middle ;
+    margin: 0 auto;
+    width: 500px;
+    background-color: ccc;
+    text-align: center;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .tableHere{
+    margin-top: 11px;
+  }
