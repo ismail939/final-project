@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/userHome.css') }}">
 </head>
 
 <body>
@@ -40,7 +40,23 @@
     </form>
     {{-- <a href="{{route('profile')}}">Profile</a> --}}
     <button id="searchbtn">Search</button>
+    <br>
+    <div id="productsDiv">
+    @foreach($products as $product)
+        <div class="divClass">
+            <img src="/images/{{$product->image}}" alt="product image" height="400px" width="400px">
+            <br>
+            <span class="nameOfProduct">{{$product->name}}</span>
+            <br>
+            <span class="priceOfProduct">Price:{{$product->price}}</span>
+            <div>
+                <button class="buy">Buy</button>
+                <button class="drop">Drop</button>
+            </div>
 
+        </div>
+    @endforeach
+</div>
 </body>
 
 </html>

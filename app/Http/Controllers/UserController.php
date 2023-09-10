@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class UserController extends Controller
 
     public function show($id){
         $user=User::find($id);
-        return view('user.userHome', compact('user'));
+        $products=Product::get();
+        return view('user.userHome', compact('user', 'products'));
     }
     public function showL(Request $request){
         $user=User::where('email','=',$request->email)->where('password','=',$request->password)->get();
