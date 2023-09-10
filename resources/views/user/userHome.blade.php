@@ -33,13 +33,12 @@
             </ul>
         </nav>
     </div>
-    <h2>{{ $user->name }}</h2>
     <h3>{{session('user_id')}}</h3>
     <form action="{{ route('profile', $user->id) }}" method="GET">
-        <button>Profile</button>
+        <button id="profile" class="search">Profile</button>
     </form>
     {{-- <a href="{{route('profile')}}">Profile</a> --}}
-    <button id="searchbtn">Search</button>
+    <button class="search" id="search">Search</button>
     <br>
     <div id="productsDiv">
     @foreach($products as $product)
@@ -49,10 +48,9 @@
             <span class="nameOfProduct">{{$product->name}}</span>
             <br>
             <span class="priceOfProduct">Price:{{$product->price}}</span>
-            <div>
-                <button class="buy">Buy</button>
-                <button class="drop">Drop</button>
-            </div>
+            <br>
+            <button class="buy">Buy</button>
+
 
         </div>
     @endforeach

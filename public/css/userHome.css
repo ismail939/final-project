@@ -176,27 +176,59 @@
   }
 
   .nameOfProduct {
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
     margin-top: 10px;
   }
 
   .priceOfProduct {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 10px;
+
   }
 
-  .buy {
-    background-color: #FFFD37;
+
+.buy{
+    background-color: var(--yellow);
+    padding: 6px 16px;
     color: black;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
+    border-radius: 4px;
+}
 
-  .drop {
+.buy:hover{
+    background-color: green;
+    color: var(--white);
+    cursor: pointer;
+    border: solid 1px green;
+    transition: all 0.3s ease-out;
+}
+
+.drop{
+    background-color: var(--yellow);
+    padding: 6px 16px;
+    color: black;
+    border-radius: 4px;
+}
+
+.drop:hover{
     background-color: red;
-    color: #000000;
-    padding: 10px 20px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-  }
+    color: var(--white);
+    cursor: pointer;
+    border: solid 1px red;
+    transition: all 0.3s ease-out;
+}
+
+.search{
+    background-color: var(--yellow);
+    padding: 6px 16px;
+    color: black;
+    border-radius: 4px;
+}
+
+.search:hover{
+    background-color: black;
+    color: var(--white);
+    cursor: pointer;
+    border: solid 1px black;
+    transition: all 0.3s ease-out;
+}
