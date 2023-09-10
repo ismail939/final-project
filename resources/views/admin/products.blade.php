@@ -30,7 +30,7 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->availability }}</td>
                     <td>{{$product->category->name}}</td>
-                    <td>{{$product->image}}</td>
+                    <td><img src="/images/{{$product->image}}" alt="product image" height="50px" width="50px"></td>
                     <td>
                         {{-- <a href="{{route('product.show',$product->product_id)}}">show</a> --}}
                         {{-- <form action="{{ route('product.show', $product->id) }}" method="get">
