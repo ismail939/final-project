@@ -45,6 +45,7 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/userHome/{id}', [UserController::class, 'show'])->name('userHome.show');
+Route::get('/userHome/order{id}', [UserController::class, 'showWithOrder'])->name('userHome.order');
 Route::post('/register/store', [UserController::class, 'store'])->name('register.store');
 Route::get('/userProfile/{id}', [UserController::class, 'showP'])->name('profile');
 
@@ -62,3 +63,8 @@ Route::get('/admin/orders', [OrderController::class, 'index'])->name('order.inde
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('/addToCart/{id}', [ProductController::class, 'addToCart'])->name('product.addToCart');
+
+
+Route::get('/shoppingCart', [ProductController::class, 'getCart'])->name('product.shoppingCart');

@@ -26,7 +26,7 @@
                 <li><a href="" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-               
+
                 <li><a href="{{ route('register') }}" class="nav-links nav-links-btn">Register</a></li>
             </ul>
         </nav>
@@ -37,11 +37,11 @@
         <input type="email" name="email" id="email" placeholder="enter your email"><br>
         <label>Password</label><br>
         <input type="password" name="password" id="password" placeholder="enter your password"><br>
-        <input type="submit" value="login" class="submit">
+        <input class="lol" type="submit" value="login" >
 
 
     </form>
-    <form action="{{ route('register') }}" method="GET"><button>register</button></form>
+    <form action="{{ route('register') }}" method="GET"><button class="lol">register</button></form>
 </body>
 
 </html>

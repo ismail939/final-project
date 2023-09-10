@@ -20,7 +20,7 @@ class OrderproductController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

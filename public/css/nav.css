@@ -150,3 +150,30 @@
 
 
 }
+form{
+vertical-align:middle ;
+    margin: 0 auto;
+    width: 500px;
+    background-color: ccc;
+    text-align: center;
+}
+.lol{
+    border: none;
+    padding: 2px;
+    border-radius: 0;
+    background-color: var(--darkgray);
+    color: var(--white);
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+    margin: 2px;
+}
+.lol:hover{
+    border: none;
+    padding: 2px;
+    border-radius: 0;
+    background-color: var(--brightred);
+    color: var(--white);
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+    margin: 2px;
+}

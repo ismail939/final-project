@@ -27,7 +27,11 @@
                 <li><a href="{{ route('profile', $user->id) }}" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-
+                <li class="nav-links">
+                    <form action="{{route('product.shoppingCart')}}">
+                        <button>Cart</button>
+                    </form>
+                    (<span>{{Session::has('cart')?Session::get('cart')->totalQty:''}}</span>)</li>
                 <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Logout</a></li>
                 <li><img class="nav-links" src="/images/{{ $user->image }}" alt="profile pic" height="50px"
                         width="50px"></li>
@@ -42,6 +46,10 @@
     {{-- <a href="{{route('profile')}}">Profile</a> --}}
     <button class="search" id="search">Search</button>
     <br>
+    {{-- <form action="{{ route('userHome.order', $user->id) }}" method="GET">
+        <button id="" class="search">Start Order</button>
+    </form> --}}
+    <br>
     <div id="productsDiv">
         @foreach ($products as $product)
             <div class="divClass">
@@ -51,30 +59,15 @@
                 <br>
                 <span class="priceOfProduct" id="priceOfProduct">Price:{{ $product->price }}</span>
                 <br>
-                <button class="buy" id="buy">Buy</button>
+                <form action="{{route('product.addToCart',$product->id)}}">
+                    <button class="buy" id="buy">Buy</button>
+                </form>
+
 
 
             </div>
         @endforeach
     </div>
-    <script>
-        try {
-            if(cart===undefined){
-                let cart = [];
-        }
-        } catch (error) {
-            let cart=[];
-        }
-
-        console.log('djdj');
-        let buy = document.getElementById("buy");
-        buy.addEventListener('click', function() {
-            cart.push(document.getElementById("nameOfProduct").textContent);
-            if(!cart.isEmpty()){console.log("djjd");}
-
-        })
-
-    </script>
 
 </body>
 
