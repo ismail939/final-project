@@ -45,7 +45,7 @@
     </fieldset>
     <fieldset>
         <legend>Credit</legend>
-        Credit
+        Credit: {{Session::get('user')['credit']}}
         <br>
         <form action="{{route('addCredit')}}" method="GET">
             <button>Add Credit</button>

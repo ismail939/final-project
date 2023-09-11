@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orderproduct;
 use App\Models\Product;
 use App\Models\User;
 use App\Models\Order;
@@ -87,7 +88,7 @@ class UserController extends Controller
     public function addCreditFinish(Request $request, $id)
     {
         $user = User::find($id);
-        // dd($user->credit);
+        // dd(Session::get('cart'));
         $newCredit = $request->input('credit') + $user->credit;
         // dd($newCredit);
         $user=Session::get('user');
@@ -102,7 +103,7 @@ class UserController extends Controller
         // dd($user->credit);
         return view('user.addCredit');
     }
-    public function checkoutFinish(){
+    public function checkoutFinish(Request $request, $id){
         // check if credit is less than cart total
         if(Session::get('user')['credit']<Session::get('cart')->totalPrice){
             return view('user.addCredit');
@@ -111,7 +112,21 @@ class UserController extends Controller
             // create order with user id
             $id=Session::get('user')['id'];
             $order=Order::create(['user_id' => $id]);
-            
+            $keys=array_keys(Session::get('cart')['items']);
+            foreach($keys as $id){
+                Orderproduct::create(['order_id'=>$order->id,'product_id'=>$id]);
+            }
+            $user=Session::get('user');
+            $newCredit=Session::get('user')['credit']-Session::get('cart')->totalPrice;
+            $user['credit']=(float)$newCredit;
+            $request->session()->put('user', $user);
+            $user=User::find($user['id']);
+            // dd($user);
+            $newCredit=(float)$newCredit;
+            $user->update([
+            'credit'=>$newCredit,
+            ]);
+            return view('user.confirmation');
         }
     }
 }
