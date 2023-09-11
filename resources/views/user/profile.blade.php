@@ -55,6 +55,33 @@
         <legend>
             Purchase history
         </legend>
+        <div class="tableDiv">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order id</th>
+                        <th>Order price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($user->orders as $order)
+                        <tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->price }}</td>
+
+
+                                {{-- <a href="{{route('product.show',$product->product_id)}}">show</a> --}}
+                                {{-- <form action="{{ route('product.show', $product->id) }}" method="get">
+                                    <button>Show</button>
+                                </form> --}}
+                        </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+
     </fieldset>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <body>
     The payment was successful
     <br>
-    <form action="{{route(userHome.show, Session::get('user')['id'])}}">
+    <form action="{{route('userHome.show', Session::get('user')['id'])}}">
         <Button>Go Home</Button>
     </form>
 </body>

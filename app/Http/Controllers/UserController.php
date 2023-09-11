@@ -19,6 +19,9 @@ class UserController extends Controller
 
     public function show($id)
     {
+        if(!Session::get('user')){
+            return redirect()->route('login');
+        }
         $user = User::find($id);
         $products = Product::get();
         $order_id = -1;
@@ -110,9 +113,11 @@ class UserController extends Controller
         }
         else{
             // create order with user id
+            $total=Session::get('cart')->totalPrice;
             $id=Session::get('user')['id'];
             $order=Order::create(['user_id' => $id]);
-            $keys=array_keys(Session::get('cart')['items']);
+
+            $keys=array_keys(Session::get('cart')->items);
             foreach($keys as $id){
                 Orderproduct::create(['order_id'=>$order->id,'product_id'=>$id]);
             }
@@ -126,6 +131,11 @@ class UserController extends Controller
             $user->update([
             'credit'=>$newCredit,
             ]);
+            // dd($total);
+            $order->update([
+                'price'=>$total,
+            ]);
+            $request->session()->put('cart', null);
             return view('user.confirmation');
         }
     }
