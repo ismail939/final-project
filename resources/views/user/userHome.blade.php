@@ -39,7 +39,7 @@
             </ul>
         </nav>
     </div>
-    <h3>{{ session('user_id') }}</h3>
+    
     <form action="{{ route('profile', $user->id) }}" method="GET">
         <button id="profile" class="search">Profile</button>
     </form>

@@ -30,6 +30,7 @@ class UserController extends Controller
         $id = $user->get(0);
         if ($user) {
             $request->session()->put('user', $id);
+            $request->session()->put('cart', null);
             return redirect()->route('userHome.show', $id);
         }
 
@@ -86,11 +87,31 @@ class UserController extends Controller
     public function addCreditFinish(Request $request, $id)
     {
         $user = User::find($id);
-        $newCredit = $request->credit + $user->credit;
-        $user->update(
-            [
-                'credit' => $newCredit,
-            ]
-        );
+        // dd($user->credit);
+        $newCredit = $request->input('credit') + $user->credit;
+        // dd($newCredit);
+        $user=Session::get('user');
+        $user['credit']=(float)$newCredit;
+        $request->session()->put('user', $user);
+        $user=User::find($user['id']);
+        // dd($user);
+        $newCredit=(float)$newCredit;
+        $user->update([
+            'credit'=>$newCredit,
+        ]);
+        // dd($user->credit);
+        return view('user.addCredit');
+    }
+    public function checkoutFinish(){
+        // check if credit is less than cart total
+        if(Session::get('user')['credit']<Session::get('cart')->totalPrice){
+            return view('user.addCredit');
+        }
+        else{
+            // create order with user id
+            $id=Session::get('user')['id'];
+            $order=Order::create(['user_id' => $id]);
+            
+        }
     }
 }

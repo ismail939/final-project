@@ -30,7 +30,24 @@
             </ul>
         </nav>
     </div>
+    <div id="productsDiv">
+        @foreach ($products as $product)
+            <div class="divClass">
+                <img src="/images/{{ $product->image }}" alt="product image" height="400px" width="400px">
+                <br>
+                <span class="nameOfProduct" id="nameOfProduct">{{ $product->name }}</span>
+                <br>
+                <span class="priceOfProduct" id="priceOfProduct">Price:{{ $product->price }}</span>
+                <br>
+                <form action="{{route('product.addToCart',$product->id)}}">
+                    <button class="buy" id="buy">Buy</button>
+                </form>
 
+
+
+            </div>
+        @endforeach
+    </div>
 
     <script>
         let homeLink = document.getElementById("homeLink");

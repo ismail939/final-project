@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function(){
-    return view('welcome');
+    $products=Product::get();
+    return view('welcome', compact('products'));
 });
 Route::post('/admin/home', function (Request $request) {
     if($request->name=="ismail"&&$request->password=="gg.gg.gg"){
@@ -70,6 +72,6 @@ Route::get('/addToCart/{id}', [ProductController::class, 'addToCart'])->name('pr
 Route::get('/shoppingCart', [ProductController::class, 'getCart'])->name('product.shoppingCart');
 
 Route::get('/checkout', [ProductController::class, 'getCheckout'])->name('checkout');
-Route::post('/checkoutFinish', [ProductController::class, 'checkoutFinish'])->name('checkoutFinish');
+Route::get('/checkoutFinish', [ProductController::class, 'checkoutFinish'])->name('checkoutFinish');
 Route::get('/addCredit', [UserController::class, 'addCredit'])->name('addCredit');
-Route::post('/addCreditFinish', [UserController::class, 'addCreditFinish'])->name('addCreditFinish');
+Route::post('/addCreditFinish/{id}', [UserController::class, 'addCreditFinish'])->name('addCreditFinish');
