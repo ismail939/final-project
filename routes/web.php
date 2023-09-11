@@ -75,3 +75,6 @@ Route::get('/checkout', [ProductController::class, 'getCheckout'])->name('checko
 Route::post('/checkoutFinish/{id}', [UserController::class, 'checkoutFinish'])->name('checkoutFinish');
 Route::get('/addCredit', [UserController::class, 'addCredit'])->name('addCredit');
 Route::post('/addCreditFinish/{id}', [UserController::class, 'addCreditFinish'])->name('addCreditFinish');
+
+Route::post('/productSearch', [ProductController::class, 'productSearch'])->name('productSearch');
+

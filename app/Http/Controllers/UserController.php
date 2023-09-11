@@ -25,7 +25,7 @@ class UserController extends Controller
         $user = User::find($id);
         $products = Product::get();
         $order_id = -1;
-        return view('user.userHome', compact('user', 'products', 'order_id'));
+        return view('user.userHome', compact('user', 'products'));
     }
     public function showL(Request $request)
     {

@@ -39,12 +39,20 @@
             </ul>
         </nav>
     </div>
-    
+
     <form action="{{ route('profile', $user->id) }}" method="GET">
         <button id="profile" class="search">Profile</button>
     </form>
     {{-- <a href="{{route('profile')}}">Profile</a> --}}
-    <button class="search" id="search">Search</button>
+    <form action="{{route('productSearch')}}" method="post">
+        @csrf
+        <input type="text" name="name" placeholder="Search..">
+        <button class="search" id="search">Search</button>
+    </form>
+    <form action="{{route('userHome.show', $user->id)}}">
+        <button class="search">Cancel</button>
+    </form>
+
     <br>
     {{-- <form action="{{ route('userHome.order', $user->id) }}" method="GET">
         <button id="" class="search">Start Order</button>

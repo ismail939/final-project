@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Cart;
 use App\Models\User;
+use DB;
 use File;
 use Illuminate\Http\Request;
 use Session;
@@ -146,5 +147,16 @@ class ProductController extends Controller
         $total=$cart->totalPrice;
         return view('shop.checkout', compact('total'));
     }
+    public function productSearch(Request $request){
+        $name=$request->name;
+        $products = DB::table('products')->where('name', 'like', '%'.$name.'%')->get();
+       
+        $search=true;
+        $request->session()->put('search', $search);
+        $user=Session::get('user');
+        return view('user.userHome', compact('products','user' ));
+    }
+
+
 
 }
