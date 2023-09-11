@@ -31,8 +31,8 @@
                     <form action="{{route('product.shoppingCart')}}">
                         <button>Cart</button>
                     </form>
-                    (<span>{{Session::has('cart')?Session::get('cart')->totalQty:''}}</span>)</li>
-                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Logout</a></li>
+                    (<span>{{Session::has('cart')?Session::get('cart')->totalQty:0}}</span>)</li>
+                <li><a href="{{ route('logout') }}" class="nav-links nav-links-btn">Logout</a></li>
                 <li><img class="nav-links" src="/images/{{ $user->image }}" alt="profile pic" height="50px"
                         width="50px"></li>
 

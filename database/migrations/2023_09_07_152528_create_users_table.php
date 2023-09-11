@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->string('address');
             $table->string('email')->unique();
             $table->string('image');
+            $table->float('credit')->default(0);
             $table->timestamps();
         });
     }

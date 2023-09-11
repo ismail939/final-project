@@ -24,7 +24,7 @@
                 <li><a href="{{route('profile', $user->id)}}" class="nav-links" id="profileLink">Profile</a></li>
                 <li><a href="#" class="nav-links">About</a></li>
                 <li><a href="#" class="nav-links">Contact Us</a></li>
-                <li><a href="{{ route('login') }}" class="nav-links nav-links-btn">Logout</a></li>
+                <li><a href="{{ route('logout') }}" class="nav-links nav-links-btn">Logout</a></li>
                 <li><img class="nav-links" src="/images/{{$user->image}}" alt="profile pic" height="50px" width="50px"></li>
             </ul>
         </nav>
@@ -42,6 +42,14 @@
                 <td>{{$user->email}}</td>
             </tr>
         </table>
+    </fieldset>
+    <fieldset>
+        <legend>Credit</legend>
+        Credit
+        <br>
+        <form action="{{route('addCredit')}}" method="GET">
+            <button>Add Credit</button>
+        </form>
     </fieldset>
     <fieldset>
         <legend>
