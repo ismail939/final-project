@@ -11,7 +11,9 @@
     <h4>Your total price is: {{$total}}</h4>
     <form action="{{route('checkoutFinish')}}" method="post">
         @csrf
-
+        Your Credit: {{Session::get('user')['credit']}}
+        <br>
+        <button>Submit</button>
     </form>
 </body>
 </html>

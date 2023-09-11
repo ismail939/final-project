@@ -70,6 +70,6 @@ Route::get('/addToCart/{id}', [ProductController::class, 'addToCart'])->name('pr
 Route::get('/shoppingCart', [ProductController::class, 'getCart'])->name('product.shoppingCart');
 
 Route::get('/checkout', [ProductController::class, 'getCheckout'])->name('checkout');
-
+Route::post('/checkoutFinish', [ProductController::class, 'checkoutFinish'])->name('checkoutFinish');
 Route::get('/addCredit', [UserController::class, 'addCredit'])->name('addCredit');
 Route::post('/addCreditFinish', [UserController::class, 'addCreditFinish'])->name('addCreditFinish');

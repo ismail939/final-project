@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Cart;
+use App\Models\User;
 use File;
 use Illuminate\Http\Request;
 use Session;
@@ -141,5 +142,15 @@ class ProductController extends Controller
         $cart=new Cart($oldCart);
         $total=$cart->totalPrice;
         return view('shop.checkout', compact('total'));
+    }
+    public function checkoutFinish(Request $request){
+        $newCredit=Session::get('user')['credit']-Session::get('cart')->totalPrice;
+        $user=Session::get('user');
+        $user['credit']=$newCredit;
+        $request->session()->put('user', $user);
+        $user=User::find($user['id']);
+        $user->update([
+            'credit'=>$newCredit,
+        ]);
     }
 }
