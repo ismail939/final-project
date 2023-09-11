@@ -115,6 +115,9 @@ class ProductController extends Controller
     }
     public function addToCart(Request $request, $id)
     {
+        if(!Session::get('user')){
+            return redirect()->route('login');
+        }
         $product = Product::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
@@ -143,5 +146,5 @@ class ProductController extends Controller
         $total=$cart->totalPrice;
         return view('shop.checkout', compact('total'));
     }
-    
+
 }
